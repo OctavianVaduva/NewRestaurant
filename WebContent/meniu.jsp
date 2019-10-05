@@ -2,79 +2,81 @@
     pageEncoding="ISO-8859-1"%>
     
 <%@ page import="java.util.List" %>
-<%@ page import="date.Produs" %>
+<%@ page import="date.ProdusCSV" %>
     
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Meniu</title>
-
-<style>
-
-  /*sursa< https://www.geeksforgeeks.org/how-to-create-table-with-100-width-with-vertical-scroll-inside-table-body-in-html/  */
-table.meniu { 
-    width: 100%; 
-            /* border-collapse: collapse; */ 
-    border-spacing: 0; 
-    border: 1px solid #dddddd; 
-    } 
-          
-        /* To display the block as level element */ 
-   table.meniu tbody, table.meniu thead { 
-        display: block; 
-        }  
-          
-        thead tr th { 
-            height: 20px;  
-            line-height: 1px; 
-        } 
-          
-        table.meniu tbody { 
-            /* Set the height of table body */ 
-            height: 400px;  
-            /* Set vertical scroll */ 
-            overflow-y: auto; 
-            /* Hide the horizontal scroll */ 
-            overflow-x: hidden;  
-        } 
-          
-        tbody {  
-            border-top: 2px solid black; 
-        } 
-        tbody td, thead th { 
-            width : 160px; 
-            border-right: 1px solid #dddddd; 
-        } 
-/*         td { 
-            text-align:center; 
-        }  */  
-  
-
-/* tbody, td, thead, th {
-  border: 1px solid #dddddd;
-  padding: 2px;
-} */
-
-tr:nth-child(odd) {
-  background-color: #88ff88;
-  font-family: Times;
-  font-size: 15px;
-  color="blue" 
-  
-
-}
-</style>
+	<meta charset="ISO-8859-1">
+	<title>Meniu</title>
+	
+	<style>
+	
+	  /*sursa< https://www.geeksforgeeks.org/how-to-create-table-with-100-width-with-vertical-scroll-inside-table-body-in-html/  */
+	table.meniu { 
+	    width: 100%; 
+	            /* border-collapse: collapse; */ 
+	    border-spacing: 0; 
+	    border: 1px solid #dddddd; 
+	    } 
+	          
+	        /* To display the block as level element */ 
+	   table.meniu tbody, table.meniu thead { 
+	        display: block; 
+	        }  
+	          
+	        thead tr th { 
+	            height: 20px;  
+	            line-height: 1px; 
+	        } 
+	          
+	        table.meniu tbody { 
+	            /* Set the height of table body */ 
+	            height: 400px;  
+	            /* Set vertical scroll */ 
+	            overflow-y: auto; 
+	            /* Hide the horizontal scroll */ 
+	            overflow-x: hidden;  
+	        } 
+	          
+	        tbody {  
+	            border-top: 2px solid black; 
+	        } 
+	        tbody td, thead th { 
+	            width : 160px; 
+	            border-right: 1px solid #dddddd; 
+	        } 
+	/*         td { 
+	            text-align:center; 
+	        }  */  
+	  
+	/* tbody, td, thead, th {
+	  border: 1px solid #dddddd;
+	  padding: 2px;
+	} */
+	
+	tr:nth-child(odd) {
+	  background-color: #88ff88;
+	  font-family: Times;
+	  font-size: 15px;
+	  color="blue" 
+	}
+	</style>
 
 </head>
 
 <body>
-<h1 align="center"><b><i>RESTAURANTUL VEDETELOR</i></b></h1>
-<h2 align="center"><b><i>Meniu</i></b></h2>
-
-<%
-List listaProduse = (List) pageContext.getAttribute("listaProduse", PageContext.SESSION_SCOPE);
-%>
+	<h1 align="center"><b><i>RESTAURANTUL VEDETELOR</i></b></h1>
+	<h2 align="center"><b><i>Meniu</i></b></h2>
+	
+	<%
+		List listaProduse = (List) pageContext.getAttribute("listaProduse", PageContext.SESSION_SCOPE);
+	%>
+	
+<%-- 	<% 
+		List listaProduse = (List) MeniuManager.getAttribute("listaProduse", PageContext.SESSION_SCOPE); 
+ 	%> --%>
+	
 
 	<table class="meniu" style="width:100%" border="1">
 		<thead>
@@ -94,14 +96,14 @@ List listaProduse = (List) pageContext.getAttribute("listaProduse", PageContext.
 			
 		<tbody>
 			<% for(int i=0; i<listaProduse.size();i++) { %> <!-- scrierea iterativa a meniului -->
-				<% Produs produs = (Produs) listaProduse.get(i); %>
+				<% ProdusCSV produs = (ProdusCSV) listaProduse.get(i); %>
 				<tr align="center">
 					<td rowspan="2"><%=produs.getCategorie()%></td>
 					<td style="color:red" align="left"><b><i><%=produs.getIdProdus() %></i> - <%=produs.getNumeProdus() %></b></td>
 					<!--  <td><%=produs.getDescriereProdus() %></td> -->
 					<td><%=produs.getPretUnitar() %></td>
-					<td><%=produs.getPoza() %></td>
-					<td><%=produs.getNrPortii() %></td>
+					<%-- <td><%=produs.getPoza() %></td> --%>
+					<td><input type="number"></td>
 					<td><% if(Integer.parseInt(produs.getStoc()) > 10) {%>
 							<input type="button" value="adauga">
 							<%} else if(Integer.parseInt(produs.getStoc()) > 0) {%>

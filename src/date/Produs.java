@@ -1,84 +1,107 @@
 package date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "produse")
 public class Produs {
 	
-	public String categorie;
-	public String idProdus;
+
+	@Id
+	@Column(name = "id_produs")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Integer idProdus;
+	
+	@Column(name = "id_categorie")
+	public Integer categorie;
+	
+	@Column(name = "nume_produs")
     public String numeProdus;
+	
+	@Column(name = "descriere_produs")
     public String descriereProdus;
-    public String pretUnitar;
-    public String poza;
-    public String nrPortii;
-    public String stoc;
+	
+	@Column(name = "pret_unitar")
+    public Double pretUnitar;
+	
+	@Column(name="nivel_existent")
+    public Integer stoc;
+	
+	@Column(name="nivel_alerta")
+	public Integer nivelAlerta;
     
-	public Produs(String categorie, String idProdus, String numeProdus, String descriereProdus, String pretUnitar,
-			String poza, String nrPortii, String stoc) {
+
+	public Produs(Integer idProdus, Integer categorie, String numeProdus, String descriereProdus, Double pretUnitar,
+			Integer stoc, Integer nivelAlerta) {
 		super();
-		this.categorie = categorie;
 		this.idProdus = idProdus;
+		this.categorie = categorie;
 		this.numeProdus = numeProdus;
 		this.descriereProdus = descriereProdus;
 		this.pretUnitar = pretUnitar;
-		this.poza = poza;
-		this.nrPortii = nrPortii;
 		this.stoc = stoc;
+		this.nivelAlerta = nivelAlerta;
 	}
 
-	public String getCategorie() {
-		return categorie;
+	public Produs() {
+		super();
 	}
 
-	public void setCategorie(String categorie) {
-		this.categorie = categorie;
-	}
-	public String getIdProdus() {
+	public Integer getIdProdus() {
 		return idProdus;
 	}
-	public void setIdProdus(String idProdus) {
+	public void setIdProdus(Integer idProdus) {
 		this.idProdus = idProdus;
 	}
-
+	
+	public Integer getCategorie() {
+		return categorie;
+	}
+	public void setCategorie(Integer categorie) {
+		this.categorie = categorie;
+	}
+	
 	public String getNumeProdus() {
 		return numeProdus;
 	}
 	public void setNumeProdus(String numeProdus) {
 		this.numeProdus = numeProdus;
 	}
-
+	
 	public String getDescriereProdus() {
 		return descriereProdus;
 	}
 	public void setDescriereProdus(String descriereProdus) {
 		this.descriereProdus = descriereProdus;
 	}
-
-	public String getPretUnitar() {
+	
+	public Double getPretUnitar() {
 		return pretUnitar;
 	}
-	public void setPretUnitar(String pretUnitar) {
+	public void setPretUnitar(Double pretUnitar) {
 		this.pretUnitar = pretUnitar;
 	}
 
-	public String getPoza() {
-		return poza;
-	}
-	public void setPoza(String poza) {
-		this.poza = poza;
-	}
-
-	public String getNrPortii() {
-		return nrPortii;
-	}
-	public void setNrPortii(String nrPortii) {
-		this.nrPortii = nrPortii;
-	}
-	
-	public String getStoc() {
+	public Integer getStoc() {
 		return stoc;
 	}
-	public void setStoc(String stoc) {
+	public void setStoc(Integer stoc) {
 		this.stoc = stoc;
 	}
+
+	public Integer getNivelAlerta() {
+		return nivelAlerta;
+	}
+	public void setNivelAlerta(Integer nivelAlerta) {
+		this.nivelAlerta = nivelAlerta;
+	}
+
+
 
 
 }

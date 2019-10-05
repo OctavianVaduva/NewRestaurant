@@ -20,7 +20,7 @@ public void parse() {
        try {
            br = new BufferedReader(new FileReader(file));
            while ((line = br.readLine()) != null) {
-               // use comma as separator
+               // use && as separator
                String[] tokens = line.split("&&");
 //               System.out.println(tokens[0] + " " + tokens[1] + " " + tokens[2] + " " + tokens[3] + " " + tokens[4] + " " + tokens[5] + " " + tokens[6] + " " + tokens[7]);
                getTokensFromLine(tokens);
