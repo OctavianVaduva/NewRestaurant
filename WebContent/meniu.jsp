@@ -87,7 +87,7 @@
 				<th style="color:red" align="left">Produs</th>
 				<!--  <th>Descriere produs</th> A fost mutat pe randul 2-->
 				<th>Pret</th>
-				<!-- <th>Imagine</th> -->
+				<th>Imagine</th> 
 				<th>Cantitate</th>
 				<th>Adauga</th>
 			</tr>  
@@ -104,7 +104,7 @@
 									 - ${produse.getNumeProdus()}</b></td>
 					<!--  <td>${produse.getDescriereProdus()}</td> -->
 					<td>${produse.getPretUnitar()}</td>
-					<%-- <td>${produse.getPoza()}</td> --%>
+					<td><img border="3" src="imagini/meniu.jpg" width="120" height="80"></td>
 					<td><input type="number" value=0 ></td>
 					<%-- <td> <% if(%>${produse.getStoc()}<% &gt; %>${produse.getNivelAlerta()})<% {%>
 							<input type="button" value="adauga">

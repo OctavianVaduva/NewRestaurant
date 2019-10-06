@@ -89,8 +89,6 @@ public class AfiseazaMeniu extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/meniu.jsp");
 		 rd.forward(request, response);
 		
-		
-		
 	}
 
 //	private ListaProduseInterface listaProduseService = new ListaProduseDAO();

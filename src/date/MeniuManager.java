@@ -106,7 +106,7 @@ protected SessionFactory sessionFactory;
         
         manager.create();
 //        manager.read(100);
-//        manager.delete(125);
+//        manager.delete(123);
 //        manager.update();
      
         manager.exit();

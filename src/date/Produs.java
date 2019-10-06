@@ -49,7 +49,7 @@ public class Produs {
 	}
 
 	public Produs() {
-		super();
+//		super();
 	}
 
 	public Integer getIdProdus() {
