@@ -5,20 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "produse")
 public class Produs {
 	
-
 	@Id
 	@Column(name = "id_produs")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer idProdus;
 	
+	
 	@Column(name = "id_categorie")
-	public Integer categorie;
+	public Integer idCategorie;
 	
 	@Column(name = "nume_produs")
     public String numeProdus;
@@ -34,13 +35,17 @@ public class Produs {
 	
 	@Column(name="nivel_alerta")
 	public Integer nivelAlerta;
-    
+	
+	
+//	@ManyToOne
+//	private Categorie categorie;
+//    
 
-	public Produs(Integer idProdus, Integer categorie, String numeProdus, String descriereProdus, Double pretUnitar,
+	public Produs(Integer idProdus, Integer idCategorie, String numeProdus, String descriereProdus, Double pretUnitar,
 			Integer stoc, Integer nivelAlerta) {
 		super();
 		this.idProdus = idProdus;
-		this.categorie = categorie;
+		this.idCategorie = idCategorie;
 		this.numeProdus = numeProdus;
 		this.descriereProdus = descriereProdus;
 		this.pretUnitar = pretUnitar;
@@ -59,11 +64,11 @@ public class Produs {
 		this.idProdus = idProdus;
 	}
 	
-	public Integer getCategorie() {
-		return categorie;
+	public Integer getIdCategorie() {
+		return idCategorie;
 	}
-	public void setCategorie(Integer categorie) {
-		this.categorie = categorie;
+	public void setIdCategorie(Integer idCategorie) {
+		this.idCategorie = idCategorie;
 	}
 	
 	public String getNumeProdus() {
@@ -100,8 +105,5 @@ public class Produs {
 	public void setNivelAlerta(Integer nivelAlerta) {
 		this.nivelAlerta = nivelAlerta;
 	}
-
-
-
 
 }

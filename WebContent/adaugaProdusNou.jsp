@@ -8,6 +8,15 @@
 </head>
 
 <body>
+<nav>
+	<button class="baraOptiuni" onclick="location.href='/restaurant/index.html'">Home</button>
+    <button class="baraOptiuni" onclick="location.href='/restaurant/adaugaProdusNou.jsp'">Administrator</button>
+    <button class="baraOptiuni" onclick="location.href='/restaurant/adaugaProdusNou.jsp'">Ospatar</button>
+    <button class="baraOptiuni" onclick="location.href='/restaurant/AfiseazaMeniu'">Client</button>
+    <button class="baraOptiuni" onclick="location.href='/restaurant/AfiseazaMeniu'">Meniu</button>
+    <button class="baraOptiuni" onclick="location.href='/restaurant/comandaCurenta'">Comanda curenta</button>
+</nav>
+
 	<h1 align="center"><b><i>RESTAURANTUL VEDETELOR</i></b></h1>
 	<h2 align="center"><b><i>Adauga produs nou</i></b></h2>
 	
@@ -20,7 +29,7 @@
 					<label>Categorie produs</label>
 				</th>
 				<td>
-					<select id="Denumire categorie" name="categorie">
+					<select id="Denumire categorie" name="idCategorie" required>
 						<option value="1">Gustari</option>
 						<option value="2">Ciorbe</option>
 						<option value="3">Salate speciale</option>
@@ -37,19 +46,21 @@
 				</td>
 			</tr>
 			<tr>
-				<th align="right">
+				<th align="right" valign="top">
 					<label>Denumire produs</label>
 				</th>
 				<td>
-					<input type="text" id="numeProdus" name="numeProdus" maxlength="60">
+					<textarea id="numeProdus" name="numeProdus" rows = "1" cols = "65" name = "description" maxlength="60" required></textarea>
+					<!-- <input type="text" id="numeProdus" name="numeProdus" maxlength="60" > -->
 				</td>
 			</tr>
 			<tr>
-				<th align="right">
+				<th align="right" valign="top">
 					<label>Descriere produs</label>
 				</th>
 				<td>
-					<input type="text" id="descriereProdus" name="descriereProdus" maxlength="250">
+					<textarea id="descriereProdus" name="descriereProdus" rows = "5" cols = "65" name = "description" maxlength="250"></textarea>
+					<!-- <input type="text" id="descriereProdus" name="descriereProdus" maxlength="250"> -->
 				</td>
 			</tr>
 			<tr>
@@ -57,7 +68,7 @@
 					<label>Pret unitar</label>
 				</th>
 				<td>
-					<input type="number" step="0.01" id="pretUnitar" name="pretUnitar">
+					<input type="number" step="0.01" id="pretUnitar" name="pretUnitar" required>
 				</td>
 			</tr>
 			<tr>
@@ -65,7 +76,7 @@
 					<label>Nivel existent</label>
 				</th>
 				<td>
-					<input type="number" id="nivelExistent" name="nivelExistent">
+					<input type="number" id="nivelExistent" name="nivelExistent" required>
 				</td>
 			</tr>
 			<tr>
@@ -73,10 +84,11 @@
 					<label>Nivel alerta</label>
 				</th>
 				<td>
-					<input type="number" id="nivelAlerta" name="nivelAlerta">
+					<input type="number" id="nivelAlerta" name="nivelAlerta" required>
 				</td>
 			</tr>	
-			<tr> </tr>
+			<tr align="center"> <td colspan="2">---------------------------------------------</td>
+			</tr>
 			<tr> </tr>	
 			<tr align="center">
            		<th colspan="2">
@@ -89,7 +101,6 @@
 	</div>
 	
 	</form>
-
 
 </body>
 </html>

@@ -72,6 +72,17 @@
 </head>
 
 <body>
+
+<nav>
+	<button class="baraOptiuni" onclick="location.href='/restaurant/index.html'">Home</button>
+    <button class="baraOptiuni" onclick="location.href='/restaurant/adaugaProdusNou.jsp'">Administrator</button>
+    <button class="baraOptiuni" onclick="location.href='/restaurant/adaugaProdusNou.jsp'">Ospatar</button>
+    <button class="baraOptiuni" onclick="location.href='/restaurant/AfiseazaMeniu'">Client</button>
+    <button class="baraOptiuni" onclick="location.href='/restaurant/AfiseazaMeniu'">Meniu</button>
+    <button class="baraOptiuni" onclick="location.href='/restaurant/comandaCurenta'">Comanda curenta</button>
+</nav>
+
+
 	<h1 align="center"><b><i>RESTAURANTUL VEDETELOR</i></b></h1>
 	<h2 align="center"><b><i>Meniu</i></b></h2>
 	
@@ -85,21 +96,21 @@
 			<tr> <!-- Scrierea capului de tabel -->
 				<th rowspan="2">Categorie</th>
 				<th style="color:red" align="left">Produs</th>
-				<!--  <th>Descriere produs</th> A fost mutat pe randul 2-->
 				<th>Pret</th>
 				<th>Imagine</th> 
 				<th>Cantitate</th>
 				<th>Adauga</th>
 			</tr>  
 			<tr>
-				<th align="left" colspan="5" style="color:blue"><i>Descriere produs</i></th>
+				<th align="left" colspan="5" style="color:blue" ><i>Descriere produs</i></th>
 			</tr>
 		</thead>
 			
 		<tbody>	
 			<c:forEach var="produse" items="${produse}"> 
+			
 				<tr align="center">
-					<td rowspan="2">${produse.getCategorie()}</td>
+					<td rowspan="2">${produse.getIdCategorie()}</td>
 					<td style="color:red" align="left"><b><i>${produse.getIdProdus()}</i>
 									 - ${produse.getNumeProdus()}</b></td>
 					<!--  <td>${produse.getDescriereProdus()}</td> -->
@@ -116,7 +127,7 @@
 							 
 				</tr>
 				<tr>
-					<td colspan="4" style="color:blue"><i>${produse.getDescriereProdus()}</i></td>
+					<td colspan="5" style="color:blue"><i>${produse.getDescriereProdus()}</i></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -126,9 +137,8 @@
 			<% for(int i=0; i<listaProduse.size();i++) { %> <!-- scrierea iterativa a meniului -->
 				<% ProdusCSV produs = (ProdusCSV) listaProduse.get(i); %>
 				<tr align="center">
-					<td rowspan="2"><%=produs.getCategorie()%></td>
+					<td rowspan="2"><%=produs.getIdCategorie()%></td>
 					<td style="color:red" align="left"><b><i><%=produs.getIdProdus() %></i> - <%=produs.getNumeProdus() %></b></td>
-					<!--  <td><%=produs.getDescriereProdus() %></td> -->
 					<td><%=produs.getPretUnitar() %></td>
 					<td><%=produs.getPoza() %></td>
 					<td><input type="number"></td>
@@ -146,6 +156,6 @@
 	</table>
 	
 	<p></p>
-	<p align="right"><input action="AdaugaComanda" type="button" value="Adauga comanda"></p>
+	<p align="right"><input action="AdaugaComanda" type="submit" value="Adauga comanda"></p>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package date;
+package servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import date.Produs;
 import util.HibernateUtil;
 
 @WebServlet("/IntroducereProdus")
@@ -29,7 +30,7 @@ public class IntroducereProdus extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException,IOException{
 
-        Integer categorie = Integer.parseInt(request.getParameter("categorie")); 
+        Integer idCategorie = Integer.parseInt(request.getParameter("idCategorie")); 
         String numeProdus = request.getParameter("numeProdus"); 
         String descriereProdus = request.getParameter("descriereProdus"); 
         Double pretUnitar = Double.valueOf(request.getParameter("pretUnitar")); 
@@ -39,7 +40,7 @@ public class IntroducereProdus extends HttpServlet{
 		SessionFactory factory = HibernateUtil.getSessionfactory();
 		Session session = factory.openSession();
 		    Produs produs = new Produs();
-		        produs.setCategorie(categorie);
+		        produs.setIdCategorie(idCategorie);
 		        produs.setNumeProdus(numeProdus);
 		        produs.setDescriereProdus(descriereProdus);
 		        produs.setPretUnitar(pretUnitar);
@@ -52,6 +53,8 @@ public class IntroducereProdus extends HttpServlet{
 		     
 		        session.getTransaction().commit();
 		        session.close();
+		        
+		        response.sendRedirect("/restaurant/adaugaProdusNou.jsp");
         
       // Creating a RequestDispatcher object to dispatch the request to another resourcee
       // Creem un obiect rd de tip RequestDispatcher

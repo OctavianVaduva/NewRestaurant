@@ -2,7 +2,7 @@ package date;
 
 public class ProdusCSV {
 	
-	public String categorie;
+	public String idCategorie;
 	public String idProdus;
     public String numeProdus;
     public String descriereProdus;
@@ -11,10 +11,10 @@ public class ProdusCSV {
     public String nrPortii;
     public String stoc;
     
-	public ProdusCSV(String categorie, String idProdus, String numeProdus, String descriereProdus, String pretUnitar,
+	public ProdusCSV(String idCategorie, String idProdus, String numeProdus, String descriereProdus, String pretUnitar,
 			String poza, String nrPortii, String stoc) {
 		super();
-		this.categorie = categorie;
+		this.idCategorie = idCategorie;
 		this.idProdus = idProdus;
 		this.numeProdus = numeProdus;
 		this.descriereProdus = descriereProdus;
@@ -24,12 +24,12 @@ public class ProdusCSV {
 		this.stoc = stoc;
 	}
 
-	public String getCategorie() {
-		return categorie;
+	public String getIdCategorie() {
+		return idCategorie;
 	}
 
-	public void setCategorie(String categorie) {
-		this.categorie = categorie;
+	public void setIdCategorie(String idCategorie) {
+		this.idCategorie = idCategorie;
 	}
 	public String getIdProdus() {
 		return idProdus;

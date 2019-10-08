@@ -1,4 +1,4 @@
-package date;
+package configurare;
 
 import java.text.SimpleDateFormat;
 /*import java.time.*;*/

@@ -1,7 +1,7 @@
 package servlets;
 
 import configurare.ConfigurareTableta;
-import date.GenerareDataOra;
+import configurare.GenerareDataOra;
 
 public class GenereazaComanda {
 /*are rolul de a completa o inregistrare specifica deschiderii unei comenzi

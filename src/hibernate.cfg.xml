@@ -12,6 +12,7 @@
     <property name="show_sql">true</property>
         
     <mapping class="date.Produs" />
+    <mapping class="date.Categorie" />
      
   </session-factory>
 </hibernate-configuration>
